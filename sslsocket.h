@@ -11,7 +11,7 @@ class sslSocket : public QObject
 {
     Q_OBJECT
 public:
-    explicit sslSocket(QTcpSocket *clientSocket,QString Thost, QString Tport, QString sni, QString namePass,QObject *parent = nullptr);
+    explicit sslSocket(QTcpSocket *clientSocket,QString Thost, QString Tport, QString sni, QString namePass, bool ssl,QObject *parent = nullptr);
 
 signals:
 public slots:
@@ -26,6 +26,8 @@ private slots:
 private:
     QSslSocket *sslsocket;
     QTcpSocket *tcpSocket;
+    QTcpSocket *nonsslsocket;
+    bool lssl;
     QString host;
     QString name;
     QString port;

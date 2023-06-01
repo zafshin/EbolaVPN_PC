@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/darkstyle.qss</file>
+        <file>resources/Data.rar</file>
+        <file>resources/Rar.exe</file>
+    </qresource>
+</RCC>

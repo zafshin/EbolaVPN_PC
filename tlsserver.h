@@ -11,7 +11,7 @@ class tlsServer : public QObject
 {
     Q_OBJECT
 public:
-    explicit tlsServer(QString Thost = "" ,QString Tport = "" , QString lport = "", QString fakeSNI = "", QObject *parent = nullptr);
+    explicit tlsServer(QString Thost = "" ,QString Tport = "" , QString lport = "", QString fakeSNI = "", bool ssl = true, QObject *parent = nullptr);
 
 signals:
     void disconnect();
@@ -19,6 +19,7 @@ public slots:
     void setThost(QString Thost);
     void setTport(QString Tport);
     void setlport(QString lport);
+    void setssl(bool status);
     void setfakeSNI(QString fakeSNI);
     void setName(QString namePass);
     void start();
@@ -33,6 +34,7 @@ private:
     QTcpServer *server;
     //QSslSocket socket;
     QString sni;
+    bool lssl;
     QString name;
     QString portLocal;
     QString portHost;

@@ -3,8 +3,8 @@
 #include <QThread>
 #include <sslsocket.h>
 
-tlsServer::tlsServer(QString Thost ,QString Tport , QString lport, QString fakeSNI, QObject *parent)
-    : QObject{parent}, sni(fakeSNI), portLocal(lport), portHost(Tport) , host(Thost)
+tlsServer::tlsServer(QString Thost ,QString Tport , QString lport, QString fakeSNI, bool ssl, QObject *parent)
+    : QObject{parent}, sni(fakeSNI), portLocal(lport), portHost(Tport) , host(Thost), lssl(ssl)
 {
 
 
@@ -13,7 +13,8 @@ tlsServer::tlsServer(QString Thost ,QString Tport , QString lport, QString fakeS
 void tlsServer::newConnection(){
     QTcpSocket* socket = server->nextPendingConnection();
     QThread* newQThread = new QThread;
-    sslSocket* ss = new sslSocket(socket,host,portHost,sni,name);
+
+    sslSocket* ss = new sslSocket(socket,host,portHost,sni,name,lssl);
     //ss->moveToThread(newQThread);
     //socket->setParent(nullptr);
     //socket->moveToThread(newQThread);
@@ -25,7 +26,9 @@ void tlsServer::newConnection(){
 void tlsServer::setName(QString namePass){
     name = namePass;
 }
-
+void tlsServer::setssl(bool status){
+    lssl=status;
+}
 void tlsServer::setThost(QString Thost){
     host = Thost;
 }

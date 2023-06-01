@@ -2,7 +2,7 @@
 
 openVPN::openVPN(QString configPath, QString ovpnPath)
 {
-    process = new QProcess;
+    process = new QProcess(this);
     QStringList arg = {configPath};
     process->setArguments(arg);
     process->setProgram(ovpnPath);

@@ -96,22 +96,41 @@
         </layout>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>SNI: </string>
+            <string>Protocol:</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="sniEdit">
-           <property name="text">
-            <string>yahoo.com</string>
-           </property>
-           <property name="placeholderText">
-            <string>Enter your SNI</string>
-           </property>
+          <widget class="QComboBox" name="comboBox">
+           <item>
+            <property name="text">
+             <string>O</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>G</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gu</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>G_test</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Gu_test</string>
+            </property>
+           </item>
           </widget>
          </item>
         </layout>
